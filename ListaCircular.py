@@ -30,34 +30,50 @@ class ListaCircular:
             self.primero = self.primero.siguiente #el primero será el siguiente (67)
             self.ultimo.siguiente = self.primero #89 va a apuntar al 67
 
-    def Recorrer(self):#ya funciona
-        if(self.Vacia()==True):
+   # def Recorrer(self):#ya funciona
+    #    if(self.Vacia()==True):
+     #       return print("lista vacía")
+      #  else: #4->5->a
+       #     actual=self.primero
+        #    if(actual != None): #4!=Nul?
+         #       while True:
+          #          actual.Proceso.restarTiempo() #le restamos -1
+           #         if(actual is Null):
+            #            actual.EliminarInicio()
+             #       else:
+              #          actual = actual.siguiente #actual sera igual al siguiente de 4 (ahora 3) en este caso será (67)
+               #     if not (actual!=self.primero): #el ciclo continuara mientras no sea diferente del primero 67!=25? si, continua
+                #        break
+
+    def Recorrer(self):
+        if (self.Vacia() == True):
             return print("lista vacía")
-        else: #25->67->89->100
-            actual=self.primero
-            if(actual != None): #25!=Null? si
+        else:  # 4->5->a
+            if (self.primero != None):  # 4!=Nul?
                 while True:
-                    print(actual.dato) #25
-                    actual = actual.siguiente #actual sera igual al siguiente de 25 en este caso será (67)
-                    if not (actual!=self.primero): #el ciclo continuara mientras no sea diferente del primero 67!=25? si, continua
+                    self.primero.Proceso.restarTiempo()  # le restamos -1
+                    if (self.primero is Null):
+                        EliminarInicio()
+                    else:
+                        self.primero = self.primero.siguiente  # actual sera igual al siguiente de 4 (ahora 3) en este caso será (5)
+                    if not (self.primero is None):  # el ciclo continuara mientras el primero no sea Null
                         break
 
-    def EliminarProceso(self):
-        if (self.Vacia() == True):
-            print("Lista vacía") #imaginemos que ahora tenemos 4->5->4
-        elif self.primero == self.ultimo:  # si solo tenemos 4
-            while True:
-                actual = self.primero = self.ultimo #actual tomará el valor de 4
-                actual.restarTiempo() #se le restara un tiempo
-                if not (actual is None):
-                    break
-                    actual is None
-        else:  # en caso de que tengamos más elementos 4->5->4
-            while True:
-                actual = self.primero # actual tomará el valor de 4
-                actual.restarTiempo()  # se le restara un tiempo
-                actual = self.primero.siguiente #ahora actual será el siguiente (5)
-                if not (actual is None): # 5 es null? no, continua ciclando
-                    break
-                    actual is None
-                    return actual
+    #def EliminarProceso(self):
+     #   if (self.Vacia() == True):
+      # elif self.primero == self.ultimo:  # si solo tenemos 4
+       #     while True:
+        #        actual = self.primero = self.ultimo #actual tomará el valor de 4
+         #       actual.restarTiempo() #se le restara un tiempo
+          #      if not (actual is None):
+           #         break
+            #        actual is None
+        #else:  # en caso de que tengamos más elementos 4->5->4
+         #   while True:
+          #      actual = self.primero # actual tomará el valor de 4
+           #     actual.restarTiempo()  # se le restara un tiempo
+            #    actual = self.primero.siguiente #ahora actual será el siguiente (5)
+             #   if not (actual is None): # 5 es null? no, continua ciclando
+              #      break
+               #     actual is None
+                #    return actual
