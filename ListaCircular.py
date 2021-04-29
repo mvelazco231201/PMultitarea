@@ -53,7 +53,7 @@ class ListaCircular:
                 while True:
                     self.primero.Proceso.restarTiempo()  # le restamos -1
                     if (self.primero is Null):
-                        EliminarInicio()
+                        return self.primero
                     else:
                         self.primero = self.primero.siguiente  # actual sera igual al siguiente de 4 (ahora 3) en este caso será (5)
                     if not (self.primero is None):  # el ciclo continuara mientras el primero no sea Null

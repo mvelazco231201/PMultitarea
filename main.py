@@ -28,12 +28,12 @@ for i in range(0,300):#simulacion de 300 ciclos
         primerProceso = i
 
     if ProcesoActual is None:
-        ProcesoActual = multitarea.EliminarProceso()
+        ProcesoActual = multitarea.EliminarInicio()
     else:
-        ProcesoActual.restarTiempo()  # de lo contrario le restamos un tiempo al proceso
+        ProcesoActual = multitarea.Recorrer()
         if ProcesoActual.getTiempo() == 0:  # Si el proceso tiene una duracion de 0
             procesosAtentidos += 1  # contamos como atendido, finalizo su ciclo de vida
-            ProcesoActual = multitarea.EliminarProceso()  # eliminamos ese proceso de la lista circular
+            ProcesoActual = multitarea.EliminarInicio()  # eliminamos ese proceso de la lista circular
             break
 
         print('Se crearon ' + procesosCreados + ' procesos')
