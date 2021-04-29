@@ -30,6 +30,18 @@ class ListaCircular:
             self.primero = self.primero.siguiente #el primero será el siguiente (67)
             self.ultimo.siguiente = self.primero #89 va a apuntar al 67
 
+    def Recorrer(self):#ya funciona
+        if(self.Vacia()==True):
+            return print("lista vacía")
+        else: #25->67->89->100
+            actual=self.primero
+            if(actual != None): #25!=Null? si
+                while True:
+                    print(actual.dato) #25
+                    actual = actual.siguiente #actual sera igual al siguiente de 25 en este caso será (67)
+                    if not (actual!=self.primero): #el ciclo continuara mientras no sea diferente del primero 67!=25? si, continua
+                        break
+
     def EliminarProceso(self):
         if (self.Vacia() == True):
             print("Lista vacía") #imaginemos que ahora tenemos 4->5->4
