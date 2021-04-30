@@ -25,17 +25,17 @@ for i in range(0,300):#simulacion de 300 ciclos
         newProceso = Proceso()
         multitarea.Agregar(newProceso) #el nuevo proceso se agrega a la lista
         procesosCreados += 1  # contamos cuantos procesos se han creado
-        primerProceso = i
+        if(primerProceso == 0):
+            primerProceso = i
 
-    if ProcesoActual is None:
-        ProcesoActual = multitarea.EliminarInicio()
-    else:
-        ProcesoActual = multitarea.Recorrer()
-        if ProcesoActual.getTiempo() == 0:  # Si el proceso tiene una duracion de 0
-            procesosAtentidos += 1  # contamos como atendido, finalizo su ciclo de vida
-            ProcesoActual = multitarea.EliminarInicio()  # eliminamos ese proceso de la lista circular
-            break
+    if not multitarea.ProcesoActual() is None: #porceso diferente de null?
+        multitarea.ProcesoActual().restarTiempo()
+        if multitarea.ProcesoActual().getTiempo() == 0:  # Si el proceso tiene una duracion de 0
+            procesosAtendidos += 1  # contamos como atendido, finalizo su ciclo de vida
+            multitarea.EliminarInicio()  # eliminamos ese proceso de la lista circular
+        else:
+            multitarea.Recorrer() #de lo contrario seguimos recorriendo la lista
 
-        print('Se crearon ' + procesosCreados + ' procesos')
-        print('Se atendieron ' + procesosAtendidos + 'procesos')
-        print('El primer proceso se creó en el ciclo '+ primerProceso)
+print('Se crearon ' , procesosCreados , ' procesos')
+print('Se atendieron ' , procesosAtendidos , 'procesos')
+print('El primer proceso se creó en el ciclo ', primerProceso)
